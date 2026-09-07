@@ -28,3 +28,15 @@ bin/
 
 ### Mac OS ###
 .DS_Store
+
+### Custom Java & IntelliJ Additions ###
+# Ignore personal IntelliJ settings and modules
+.idea/
+*.iml
+
+# Ignore compiled Java classes (just in case)
+*.class
+
+# Ignore build folders (if you end up using Maven or Gradle)
+target/
+build/
