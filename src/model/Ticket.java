@@ -2,9 +2,9 @@ package model;
 
 public class Ticket {
     private int id;
-    private String title;
-    private String description;
-    private String assignedTo;
+    private String title = "";
+    private String description = "";
+    private String assignedTo = "";
 
     public Ticket(int id, String title, String description, String assignedTo){
         setId(id);

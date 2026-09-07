@@ -23,7 +23,7 @@ public class Main {
             String title = scanner.nextLine();
             System.out.print("Description: ");
             String description = scanner.nextLine();
-            System.out.print("Assigned personel: ");
+            System.out.print("Assigned personnel: ");
             String assignedTo = scanner.nextLine();
 
             Ticket ticket = new Ticket(
@@ -33,11 +33,18 @@ public class Main {
                     assignedTo
             );
 
-            tickets.add(ticket);
-
-
-            System.out.println(tickets.get(0));
-
+            if(
+                    ticket.getId() < 0 ||
+                    ticket.getTitle().isBlank() ||
+                    ticket.getDescription().isBlank() ||
+                    ticket.getAssignedTo().isBlank()
+            ){
+                System.out.println("Redo");
+            }
+            else{
+                tickets.add(ticket);
+                System.out.println(tickets.get(0));
+            }
         }
         else{
             System.out.println("Nonono");
