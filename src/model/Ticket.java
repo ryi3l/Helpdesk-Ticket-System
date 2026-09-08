@@ -5,12 +5,16 @@ public class Ticket {
     private String title = "";
     private String description = "";
     private String assignedTo = "";
+    private Status status;
+    private Priority priority;
 
-    public Ticket(int id, String title, String description, String assignedTo){
+    public Ticket(int id, String title, String description, String assignedTo, Status status, Priority priority){
         setId(id);
         setTitle(title);
         setDescription(description);
         setAssignedTo(assignedTo);
+        setStatus(status);
+        setPriority(priority);
     }
 
     public int getId(){
@@ -24,6 +28,12 @@ public class Ticket {
     }
     public String getAssignedTo(){
         return this.assignedTo;
+    }
+    public Status getStatus(){
+        return this.status;
+    }
+    public Priority getPriority(){
+        return this.priority;
     }
 
     public void setId(int id){
@@ -62,6 +72,14 @@ public class Ticket {
         }
     }
 
+    public void setStatus(Status status){
+        this.status = status;
+    }
+
+    public void setPriority(Priority priority){
+        this.priority = priority;
+    }
+
     @Override
     public String toString() {
         return "id: " + id + "\n" +
@@ -69,7 +87,10 @@ public class Ticket {
                 "\n" + "Description: "
                 + description + "\n"
                 + "Assigned personel: "
-                + assignedTo;
+                + assignedTo + "\n"
+                + "Status: " + status
+                + "\n" + "Priority: "
+                + priority;
     }
 
 }
