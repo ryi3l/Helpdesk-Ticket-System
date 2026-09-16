@@ -7,7 +7,8 @@ public class Ticket {
     private String assignedTo = "";
     private Status status;
     private Priority priority;
-
+    // ----------------------------------------------------------------------------------------------------------------------
+    // Constructor
     public Ticket(int id, String title, String description, String assignedTo, Status status, Priority priority){
         setId(id);
         setTitle(title);
@@ -16,6 +17,7 @@ public class Ticket {
         setStatus(status);
         setPriority(priority);
     }
+    // ----------------------------------------------------------------------------------------------------------------------
 
     public int getId(){
         return this.id;
@@ -92,5 +94,4 @@ public class Ticket {
                 + "\n" + "Priority: "
                 + priority;
     }
-
 }

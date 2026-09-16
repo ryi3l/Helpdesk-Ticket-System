@@ -9,16 +9,22 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args){
-        try {
-            Status s = Status.OPEN;
-            ArrayList<Ticket> tickets = new ArrayList<>();
+        ArrayList<Ticket> tickets = new ArrayList<>();
 
-            Scanner scanner = new Scanner(System.in);
-            System.out.print("Create a ticket?: ");
-            String createChoice = scanner.nextLine().toUpperCase();
+        Scanner scanner = new Scanner(System.in);
 
-            if (createChoice.equals("Y")) {
+        System.out.println("""
+                1 - Create Ticket
+                2 - View Tickets
+                3 - Update Ticket
+                4 - Remove Ticket
+                """);
+        System.out.print("What do you want to do?: ");
+        int choice = scanner.nextInt();
 
+        switch(choice){
+            case 1 -> {
+    // ----------------------------------------------------------------------------------------------------------------------
                 System.out.print("Enter ticket ID: ");
                 int id = scanner.nextInt();
                 scanner.nextLine();
@@ -30,18 +36,25 @@ public class Main {
                 String assignedTo = scanner.nextLine();
                 System.out.print("Priority: ");
                 String priority = scanner.nextLine().toUpperCase();
-
-                Priority p = Priority.valueOf(priority);
-
+    // ----------------------------------------------------------------------------------------------------------------------
+                Priority p;
+                try {
+                    p = Priority.valueOf(priority);
+                } // End of try
+                catch(IllegalArgumentException e){
+                    System.out.println("Error");
+                    return;
+                } // End of catch
+    // ----------------------------------------------------------------------------------------------------------------------
                 Ticket ticket = new Ticket(
                         id,
                         title,
                         description,
                         assignedTo,
-                        s,
+                        Status.OPEN,
                         p
                 );
-
+    // ----------------------------------------------------------------------------------------------------------------------
                 if (
                         ticket.getId() < 0 ||
                                 ticket.getTitle().isBlank() ||
@@ -52,14 +65,24 @@ public class Main {
                 } else {
                     tickets.add(ticket);
                     System.out.println(tickets.get(0));
-                }
+                }// End of else
+            } // End of case 1
+            case 2 -> {
+                System.out.println("View");
+            } // End of case 2
+            case 3 -> {
+                System.out.println("Update");
+            } // End of case 3
+            case 4 -> {
+                System.out.println("Remove");
+            } // End of case 4
+            default -> System.out.println("Invalid Input");
+        } // End of switch case
 
-            } else {
-                System.out.println("Nonono");
-            }
-        }
-        catch(IllegalArgumentException e){
-            System.out.println("Nakupo");
-        }
+
+
+
+
+
     }
 }
