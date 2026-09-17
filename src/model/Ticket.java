@@ -1,5 +1,7 @@
 package model;
 
+import java.util.ArrayList;
+
 public class Ticket {
     private int id;
     private String title = "";
@@ -7,6 +9,8 @@ public class Ticket {
     private String assignedTo = "";
     private Status status;
     private Priority priority;
+    private ArrayList<Comment> comments = new ArrayList<>();
+
     // ----------------------------------------------------------------------------------------------------------------------
     // Constructor
     public Ticket(int id, String title, String description, String assignedTo, Status status, Priority priority){
@@ -46,7 +50,6 @@ public class Ticket {
             System.out.println("ID can't be negative!");
         }
     }
-
     public void setTitle(String title){
         if(!title.isEmpty()){
             this.title = title;
@@ -55,7 +58,6 @@ public class Ticket {
             System.out.println("Title can't be blank!");
         }
     }
-
     public void setDescription(String description){
         if(!description.isEmpty()){
             this.description = description;
@@ -64,7 +66,6 @@ public class Ticket {
             System.out.println("Description can't be blank!");
         }
     }
-
     public void setAssignedTo(String assignedTo){
         if(!assignedTo.isEmpty()){
             this.assignedTo = assignedTo;
@@ -73,13 +74,15 @@ public class Ticket {
             System.out.println("IT personnel can't be blank!");
         }
     }
-
     public void setStatus(Status status){
         this.status = status;
     }
-
     public void setPriority(Priority priority){
         this.priority = priority;
+    }
+
+    public void addComment(Comment comment){
+        comments.add(comment);
     }
 
     @Override
